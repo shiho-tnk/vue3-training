@@ -8,3 +8,10 @@ export type PrefectureDisplay = {
   // チェックボックスがチェックされているかどうか
   isCheck: boolean
 }
+
+export type PrefectureList = {
+  prefName: string
+  prefNo: number
+  isCheck: boolean
+  done: boolean
+}
