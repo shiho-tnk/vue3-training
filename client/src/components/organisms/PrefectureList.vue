@@ -43,21 +43,22 @@ const prefectureList = ref<PrefectureList[]>([
   }
 ])
 
+// isCheck の true/false
+function click(bool: boolean) {
+  prefectureList.value[0].isCheck = bool
+}
+
 // isCheck の結果が true を返す要素だけを新しい配列に
 const unDoneprefectureList = computed(() => {
   return prefectureList.value.filter((item) => item.isCheck)
 })
 
-function click(bool: boolean) {
-  prefectureList.value[0].isCheck = bool
-}
-
-onMounted(() => {
+onMounted(async () => {
   // TODO: 全県取得のAPIへリクエストを送ってみましょう!
-  const response = axiosInstance.get<Prefecture>(
-    "{https://opendata.resas-portal.go.jp/api/v1/prefectures}"
+  const response = await axiosInstance.get<Prefecture[]>(
+    "https://opendata.resas-portal.go.jp/api/v1/prefectures"
   )
-  console.log("k")
+  console.log(response.data)
 })
 </script>
 
