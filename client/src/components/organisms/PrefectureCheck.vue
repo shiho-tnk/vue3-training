@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { PrefectureDisplay } from "@/types/prefecture"
+
 const props = defineProps<{
   prefecture: PrefectureDisplay
 }>()
@@ -19,6 +20,7 @@ const checkBox = computed({
     <span>{{ prefecture.prefName }}</span>
   </div>
 </template>
+
 <style scoped>
 .prefecture-area {
   display: flex;

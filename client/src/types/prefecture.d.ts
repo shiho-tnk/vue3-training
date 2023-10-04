@@ -2,17 +2,9 @@
 export type Prefecture = {
   prefCode: number
   prefName: string
-  isCheck: boolean
 }
 // TODO: Prefecture型にインターセクション型を利用して、チェックボックスのbooleanも追加すること
-export type PrefectureDisplay = {
+export type PrefectureDisplay = Prefecture & {
   // チェックボックスがチェックされているかどうか
   isCheck: boolean
-}
-
-export type PrefectureList = {
-  prefName: string
-  prefNo: number
-  isCheck: boolean
-  done: boolean
 }
