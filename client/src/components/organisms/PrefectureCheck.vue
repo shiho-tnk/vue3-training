@@ -5,9 +5,14 @@ import { PrefectureDisplay } from "@/types/prefecture"
 const props = defineProps<{
   prefecture: PrefectureDisplay
 }>()
-const emits = defineEmits<{
-  (eventName: "check", arg: PrefectureDisplay): void
-}>()
+
+// 親コンポーネントのcheckイベントを呼ぶ
+// const emits = defineEmits<{
+//   (eventName: "check", arg: PrefectureDisplay): void
+// }>()
+const emits = defineEmits(["check"])
+
+// 上記処理を呼び出す
 const checkBox = computed({
   get: () => props.prefecture.isCheck,
   set: (isCheck: boolean) => emits("check", { ...props.prefecture, isCheck })
